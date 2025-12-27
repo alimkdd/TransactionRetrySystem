@@ -1,0 +1,2092 @@
+2025-11-20 12:33:08.735 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-20 12:33:09.601 +02:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Statuses] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:33:09.634 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ErrorTypes] AS [e]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:33:09.646 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:33:09.657 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Transactions] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:33:09.667 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TransactionAttempts] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:33:10.040 +02:00 [INF] Configured endpoint transaction-retry-queue, Consumer: TransactionRetrySystem.Application.Services.MassTransit.RetryTransactionConsumer
+2025-11-20 12:33:10.529 +02:00 [INF] Now listening on: https://localhost:7106
+2025-11-20 12:33:10.532 +02:00 [INF] Now listening on: http://localhost:5050
+2025-11-20 12:33:10.568 +02:00 [INF] Bus started: "rabbitmq://localhost/"
+2025-11-20 12:33:10.641 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-20 12:33:10.643 +02:00 [INF] Hosting environment: Development
+2025-11-20 12:33:10.644 +02:00 [INF] Content root path: C:\Users\User\source\repos\TransactionRetrySystem\TransactionRetrySystem.API
+2025-11-20 12:33:11.637 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/index.html - null null
+2025-11-20 12:33:12.020 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/index.html - 200 null text/html;charset=utf-8 404.1926ms
+2025-11-20 12:33:12.079 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_vs/browserLink - null null
+2025-11-20 12:33:12.079 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-20 12:33:12.105 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - 200 16537 application/javascript; charset=utf-8 26.9367ms
+2025-11-20 12:33:12.150 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_vs/browserLink - 200 null text/javascript; charset=UTF-8 72.5055ms
+2025-11-20 12:33:12.179 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - null null
+2025-11-20 12:33:12.203 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 24.5234ms
+2025-11-20 12:33:18.471 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7106/api/v1/Transactions/1/retry - null 0
+2025-11-20 12:33:18.486 +02:00 [INF] Executing endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 12:33:18.521 +02:00 [INF] Route matched with {action = "RetryTransaction", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] RetryTransaction(Int32, System.Threading.CancellationToken) on controller TransactionRetrySystem.API.Controllers.TransactionsController (TransactionRetrySystem.API).
+2025-11-20 12:33:18.807 +02:00 [INF] Executed DbCommand (89ms) [Parameters=[@__transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[TransactionId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[TransactionId] = @__transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 12:33:19.026 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-11-20 12:33:19.034 +02:00 [INF] Executed action TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API) in 505.7998ms
+2025-11-20 12:33:19.040 +02:00 [INF] Executed endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 12:33:19.048 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7106/api/v1/Transactions/1/retry - 200 null text/plain; charset=utf-8 577.443ms
+2025-11-20 12:33:19.748 +02:00 [INF] Executed DbCommand (29ms) [Parameters=[@__8__locals1_transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[TransactionId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[TransactionId] = @__8__locals1_transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 12:33:19.814 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__transaction_UserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[UserId] = @__transaction_UserId_0 AND [t].[StatusId] = 5 AND [t].[AttemptedAt] >= DATEADD(hour, CAST(-1.0E0 AS int), GETUTCDATE())
+2025-11-20 12:33:19.954 +02:00 [INF] Executed DbCommand (42ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [StatusId] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2025-11-20 12:33:20.137 +02:00 [INF] Executed DbCommand (17ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RetryQueue] ([CreatedAt], [RetryCount], [ScheduledRetryTime], [StatusId], [TransactionId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-11-20 12:33:45.912 +02:00 [INF] Executed DbCommand (28ms) [Parameters=[@p4='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [ErrorMessage] = @p1, [ErrorTypeId] = @p2, [StatusId] = @p3
+OUTPUT 1
+WHERE [Id] = @p4;
+2025-11-20 12:35:26.848 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-20 12:35:27.522 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Statuses] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:35:27.552 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ErrorTypes] AS [e]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:35:27.562 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:35:27.573 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Transactions] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:35:27.583 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TransactionAttempts] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:35:27.821 +02:00 [INF] Configured endpoint transaction-retry-queue, Consumer: TransactionRetrySystem.Application.Services.MassTransit.RetryTransactionConsumer
+2025-11-20 12:35:28.235 +02:00 [INF] Now listening on: https://localhost:7106
+2025-11-20 12:35:28.237 +02:00 [INF] Now listening on: http://localhost:5050
+2025-11-20 12:35:28.291 +02:00 [INF] Bus started: "rabbitmq://localhost/"
+2025-11-20 12:35:28.321 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-20 12:35:28.323 +02:00 [INF] Hosting environment: Development
+2025-11-20 12:35:28.324 +02:00 [INF] Content root path: C:\Users\User\source\repos\TransactionRetrySystem\TransactionRetrySystem.API
+2025-11-20 12:35:29.125 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/index.html - null null
+2025-11-20 12:35:29.303 +02:00 [INF] Executed DbCommand (75ms) [Parameters=[@__8__locals1_transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[TransactionId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[TransactionId] = @__8__locals1_transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 12:35:29.405 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/index.html - 200 null text/html;charset=utf-8 295.8861ms
+2025-11-20 12:35:29.416 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-20 12:35:29.430 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_vs/browserLink - null null
+2025-11-20 12:35:29.431 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - 200 16537 application/javascript; charset=utf-8 14.7005ms
+2025-11-20 12:35:29.494 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_vs/browserLink - 200 null text/javascript; charset=UTF-8 64.9418ms
+2025-11-20 12:35:29.523 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - null null
+2025-11-20 12:35:29.545 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 22.1019ms
+2025-11-20 12:37:18.233 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-20 12:37:18.882 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Statuses] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:37:18.912 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ErrorTypes] AS [e]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:37:18.921 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:37:18.933 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Transactions] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:37:18.942 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TransactionAttempts] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:37:19.264 +02:00 [INF] Configured endpoint transaction-retry-queue, Consumer: TransactionRetrySystem.Application.Services.MassTransit.RetryTransactionConsumer
+2025-11-20 12:37:19.609 +02:00 [INF] Now listening on: https://localhost:7106
+2025-11-20 12:37:19.614 +02:00 [INF] Now listening on: http://localhost:5050
+2025-11-20 12:37:19.744 +02:00 [INF] Bus started: "rabbitmq://localhost/"
+2025-11-20 12:37:19.786 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-20 12:37:19.788 +02:00 [INF] Hosting environment: Development
+2025-11-20 12:37:19.791 +02:00 [INF] Content root path: C:\Users\User\source\repos\TransactionRetrySystem\TransactionRetrySystem.API
+2025-11-20 12:37:20.284 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/index.html - null null
+2025-11-20 12:37:20.539 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/index.html - 200 null text/html;charset=utf-8 272.75ms
+2025-11-20 12:37:20.647 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-20 12:37:20.647 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_vs/browserLink - null null
+2025-11-20 12:37:20.661 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - 200 16537 application/javascript; charset=utf-8 14.9574ms
+2025-11-20 12:37:20.707 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_vs/browserLink - 200 null text/javascript; charset=UTF-8 60.5922ms
+2025-11-20 12:37:20.735 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - null null
+2025-11-20 12:37:20.753 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 18.7897ms
+2025-11-20 12:37:24.882 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7106/api/v1/Transactions/1/cancel - null 0
+2025-11-20 12:37:24.895 +02:00 [INF] Executing endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.CancelTransactionRetries (TransactionRetrySystem.API)'
+2025-11-20 12:37:24.929 +02:00 [INF] Route matched with {action = "CancelTransactionRetries", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] CancelTransactionRetries(Int32, System.Threading.CancellationToken) on controller TransactionRetrySystem.API.Controllers.TransactionsController (TransactionRetrySystem.API).
+2025-11-20 12:37:30.182 +02:00 [INF] Executed DbCommand (5,057ms) [Parameters=[@__transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[CreatedAt], [r].[RetryCount], [r].[ScheduledRetryTime], [r].[StatusId], [r].[TransactionId]
+FROM [RetryQueue] AS [r]
+WHERE [r].[TransactionId] = @__transactionId_0 AND [r].[StatusId] = 3
+2025-11-20 12:37:30.382 +02:00 [INF] Executed DbCommand (18ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Int32), @p3='?' (DbType = Int32), @p2='?' (DbType = Int32), @p5='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [RetryQueue] SET [StatusId] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+UPDATE [RetryQueue] SET [StatusId] = @p2
+OUTPUT 1
+WHERE [Id] = @p3;
+UPDATE [RetryQueue] SET [StatusId] = @p4
+OUTPUT 1
+WHERE [Id] = @p5;
+2025-11-20 12:37:30.414 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-11-20 12:37:30.419 +02:00 [INF] Executed action TransactionRetrySystem.API.Controllers.TransactionsController.CancelTransactionRetries (TransactionRetrySystem.API) in 5481.202ms
+2025-11-20 12:37:30.422 +02:00 [INF] Executed endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.CancelTransactionRetries (TransactionRetrySystem.API)'
+2025-11-20 12:37:30.428 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7106/api/v1/Transactions/1/cancel - 200 null text/plain; charset=utf-8 5546.6891ms
+2025-11-20 12:39:46.318 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-20 12:39:47.029 +02:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Statuses] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:39:47.061 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ErrorTypes] AS [e]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:39:47.073 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:39:47.082 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Transactions] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:39:47.090 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TransactionAttempts] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:39:47.440 +02:00 [INF] Configured endpoint transaction-retry-queue, Consumer: TransactionRetrySystem.Application.Services.MassTransit.RetryTransactionConsumer
+2025-11-20 12:39:47.895 +02:00 [INF] Now listening on: https://localhost:7106
+2025-11-20 12:39:47.897 +02:00 [INF] Now listening on: http://localhost:5050
+2025-11-20 12:39:47.974 +02:00 [INF] Bus started: "rabbitmq://localhost/"
+2025-11-20 12:39:48.023 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-20 12:39:48.024 +02:00 [INF] Hosting environment: Development
+2025-11-20 12:39:48.025 +02:00 [INF] Content root path: C:\Users\User\source\repos\TransactionRetrySystem\TransactionRetrySystem.API
+2025-11-20 12:39:48.762 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/index.html - null null
+2025-11-20 12:39:49.044 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/index.html - 200 null text/html;charset=utf-8 298.3093ms
+2025-11-20 12:39:49.098 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-20 12:39:49.098 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_vs/browserLink - null null
+2025-11-20 12:39:49.112 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - 200 16537 application/javascript; charset=utf-8 15.3578ms
+2025-11-20 12:39:49.166 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_vs/browserLink - 200 null text/javascript; charset=UTF-8 68.742ms
+2025-11-20 12:39:49.197 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - null null
+2025-11-20 12:39:49.221 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 25.3729ms
+2025-11-20 12:40:07.943 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-20 12:40:08.564 +02:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Statuses] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:40:08.596 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ErrorTypes] AS [e]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:40:08.603 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:40:08.612 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Transactions] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:40:08.620 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TransactionAttempts] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:40:08.859 +02:00 [INF] Configured endpoint transaction-retry-queue, Consumer: TransactionRetrySystem.Application.Services.MassTransit.RetryTransactionConsumer
+2025-11-20 12:40:09.252 +02:00 [INF] Now listening on: https://localhost:7106
+2025-11-20 12:40:09.256 +02:00 [INF] Now listening on: http://localhost:5050
+2025-11-20 12:40:09.335 +02:00 [INF] Bus started: "rabbitmq://localhost/"
+2025-11-20 12:40:09.387 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-20 12:40:09.394 +02:00 [INF] Hosting environment: Development
+2025-11-20 12:40:09.398 +02:00 [INF] Content root path: C:\Users\User\source\repos\TransactionRetrySystem\TransactionRetrySystem.API
+2025-11-20 12:40:10.196 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/index.html - null null
+2025-11-20 12:40:10.459 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/index.html - 200 null text/html;charset=utf-8 278.889ms
+2025-11-20 12:40:10.505 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-20 12:40:10.506 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_vs/browserLink - null null
+2025-11-20 12:40:10.520 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - 200 16537 application/javascript; charset=utf-8 14.9354ms
+2025-11-20 12:40:10.576 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_vs/browserLink - 200 null text/javascript; charset=UTF-8 71.1047ms
+2025-11-20 12:40:10.608 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - null null
+2025-11-20 12:40:10.627 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 20.4765ms
+2025-11-20 12:41:16.249 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7106/api/v1/Transactions/1/retry - null 0
+2025-11-20 12:41:16.272 +02:00 [INF] Executing endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 12:41:16.310 +02:00 [INF] Route matched with {action = "RetryTransaction", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] RetryTransaction(Int32, System.Threading.CancellationToken) on controller TransactionRetrySystem.API.Controllers.TransactionsController (TransactionRetrySystem.API).
+2025-11-20 12:41:16.556 +02:00 [INF] Executed DbCommand (61ms) [Parameters=[@__transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[TransactionId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[TransactionId] = @__transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 12:41:16.789 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-11-20 12:41:16.796 +02:00 [INF] Executed action TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API) in 475.1043ms
+2025-11-20 12:41:16.798 +02:00 [INF] Executed endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 12:41:16.803 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7106/api/v1/Transactions/1/retry - 200 null text/plain; charset=utf-8 554.5796ms
+2025-11-20 12:41:17.078 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__8__locals1_transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[TransactionId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[TransactionId] = @__8__locals1_transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 12:41:17.148 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__transaction_UserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[UserId] = @__transaction_UserId_0 AND [t].[StatusId] = 5 AND [t].[AttemptedAt] >= DATEADD(hour, CAST(-1.0E0 AS int), GETUTCDATE())
+2025-11-20 12:41:17.270 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [StatusId] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2025-11-20 12:41:17.415 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RetryQueue] ([CreatedAt], [RetryCount], [ScheduledRetryTime], [StatusId], [TransactionId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-11-20 12:41:17.504 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [ErrorMessage] = @p1, [StatusId] = @p2
+OUTPUT 1
+WHERE [Id] = @p3;
+2025-11-20 12:42:17.703 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[@__8__locals1_transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[TransactionId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[TransactionId] = @__8__locals1_transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 12:44:56.218 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-20 12:44:56.847 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Statuses] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:44:56.894 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ErrorTypes] AS [e]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:44:56.905 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:44:56.918 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Transactions] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:44:56.926 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TransactionAttempts] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:44:57.172 +02:00 [INF] Configured endpoint transaction-retry-queue, Consumer: TransactionRetrySystem.Application.Services.MassTransit.RetryTransactionConsumer
+2025-11-20 12:44:57.593 +02:00 [INF] Now listening on: https://localhost:7106
+2025-11-20 12:44:57.595 +02:00 [INF] Now listening on: http://localhost:5050
+2025-11-20 12:44:57.670 +02:00 [INF] Bus started: "rabbitmq://localhost/"
+2025-11-20 12:44:57.707 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-20 12:44:57.709 +02:00 [INF] Hosting environment: Development
+2025-11-20 12:44:57.711 +02:00 [INF] Content root path: C:\Users\User\source\repos\TransactionRetrySystem\TransactionRetrySystem.API
+2025-11-20 12:44:58.470 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/index.html - null null
+2025-11-20 12:44:58.729 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/index.html - 200 null text/html;charset=utf-8 279.3489ms
+2025-11-20 12:44:58.776 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-20 12:44:58.776 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_vs/browserLink - null null
+2025-11-20 12:44:58.793 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - 200 16537 application/javascript; charset=utf-8 18.3992ms
+2025-11-20 12:44:58.843 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_vs/browserLink - 200 null text/javascript; charset=UTF-8 68.5429ms
+2025-11-20 12:44:58.873 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - null null
+2025-11-20 12:44:58.895 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 22.4068ms
+2025-11-20 12:45:04.355 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7106/api/v1/Transactions/1/retry - null 0
+2025-11-20 12:45:04.368 +02:00 [INF] Executing endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 12:45:04.401 +02:00 [INF] Route matched with {action = "RetryTransaction", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] RetryTransaction(Int32, System.Threading.CancellationToken) on controller TransactionRetrySystem.API.Controllers.TransactionsController (TransactionRetrySystem.API).
+2025-11-20 12:45:04.640 +02:00 [INF] Executed DbCommand (60ms) [Parameters=[@__transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[TransactionId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[TransactionId] = @__transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 12:45:04.905 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-11-20 12:45:04.911 +02:00 [INF] Executed action TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API) in 502.2932ms
+2025-11-20 12:45:04.913 +02:00 [INF] Executed endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 12:45:04.918 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7106/api/v1/Transactions/1/retry - 200 null text/plain; charset=utf-8 564.3406ms
+2025-11-20 12:45:05.199 +02:00 [INF] Executed DbCommand (21ms) [Parameters=[@__8__locals1_transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[TransactionId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[TransactionId] = @__8__locals1_transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 12:45:05.269 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__transaction_UserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[UserId] = @__transaction_UserId_0 AND [t].[StatusId] = 5 AND [t].[AttemptedAt] >= DATEADD(hour, CAST(-1.0E0 AS int), GETUTCDATE())
+2025-11-20 12:45:05.393 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [StatusId] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2025-11-20 12:46:55.732 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-20 12:46:56.400 +02:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Statuses] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:46:56.427 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ErrorTypes] AS [e]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:46:56.437 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:46:56.449 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Transactions] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:46:56.458 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TransactionAttempts] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:46:56.732 +02:00 [INF] Configured endpoint transaction-retry-queue, Consumer: TransactionRetrySystem.Application.Services.MassTransit.RetryTransactionConsumer
+2025-11-20 12:46:57.170 +02:00 [INF] Now listening on: https://localhost:7106
+2025-11-20 12:46:57.173 +02:00 [INF] Now listening on: http://localhost:5050
+2025-11-20 12:46:57.254 +02:00 [INF] Bus started: "rabbitmq://localhost/"
+2025-11-20 12:46:57.305 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-20 12:46:57.306 +02:00 [INF] Hosting environment: Development
+2025-11-20 12:46:57.308 +02:00 [INF] Content root path: C:\Users\User\source\repos\TransactionRetrySystem\TransactionRetrySystem.API
+2025-11-20 12:46:57.731 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/index.html - null null
+2025-11-20 12:46:57.988 +02:00 [INF] Executed DbCommand (80ms) [Parameters=[@__8__locals1_transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[TransactionId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[TransactionId] = @__8__locals1_transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 12:46:58.027 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/index.html - 200 null text/html;charset=utf-8 313.4435ms
+2025-11-20 12:46:58.072 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-20 12:46:58.072 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_vs/browserLink - null null
+2025-11-20 12:46:58.088 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - 200 16537 application/javascript; charset=utf-8 16.6756ms
+2025-11-20 12:46:58.146 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_vs/browserLink - 200 null text/javascript; charset=UTF-8 75.1096ms
+2025-11-20 12:46:58.173 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - null null
+2025-11-20 12:46:58.194 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 21.3ms
+2025-11-20 12:47:02.276 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7106/api/v1/Transactions/1/retry - null 0
+2025-11-20 12:47:02.290 +02:00 [INF] Executing endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 12:47:02.324 +02:00 [INF] Route matched with {action = "RetryTransaction", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] RetryTransaction(Int32, System.Threading.CancellationToken) on controller TransactionRetrySystem.API.Controllers.TransactionsController (TransactionRetrySystem.API).
+2025-11-20 12:47:02.378 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[TransactionId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[TransactionId] = @__transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 12:47:02.525 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__8__locals1_transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[TransactionId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[TransactionId] = @__8__locals1_transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 12:47:02.541 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-11-20 12:47:02.549 +02:00 [INF] Executed action TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API) in 216.9964ms
+2025-11-20 12:47:02.552 +02:00 [INF] Executed endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 12:47:02.554 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7106/api/v1/Transactions/1/retry - 200 null text/plain; charset=utf-8 278.8171ms
+2025-11-20 12:47:24.175 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-20 12:47:24.840 +02:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Statuses] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:47:24.889 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ErrorTypes] AS [e]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:47:24.898 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:47:24.908 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Transactions] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:47:24.917 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TransactionAttempts] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 12:47:25.192 +02:00 [INF] Configured endpoint transaction-retry-queue, Consumer: TransactionRetrySystem.Application.Services.MassTransit.RetryTransactionConsumer
+2025-11-20 12:47:25.654 +02:00 [INF] Now listening on: https://localhost:7106
+2025-11-20 12:47:25.657 +02:00 [INF] Now listening on: http://localhost:5050
+2025-11-20 12:47:25.726 +02:00 [INF] Bus started: "rabbitmq://localhost/"
+2025-11-20 12:47:25.790 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-20 12:47:25.792 +02:00 [INF] Hosting environment: Development
+2025-11-20 12:47:25.794 +02:00 [INF] Content root path: C:\Users\User\source\repos\TransactionRetrySystem\TransactionRetrySystem.API
+2025-11-20 12:47:26.190 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/index.html - null null
+2025-11-20 12:47:26.464 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/index.html - 200 null text/html;charset=utf-8 289.5853ms
+2025-11-20 12:47:26.509 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-20 12:47:26.509 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_vs/browserLink - null null
+2025-11-20 12:47:26.523 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - 200 16537 application/javascript; charset=utf-8 14.8592ms
+2025-11-20 12:47:26.575 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_vs/browserLink - 200 null text/javascript; charset=UTF-8 66.3775ms
+2025-11-20 12:47:26.607 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - null null
+2025-11-20 12:47:26.628 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 22.3842ms
+2025-11-20 12:47:30.077 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7106/api/v1/Transactions/1/retry - null 0
+2025-11-20 12:47:30.090 +02:00 [INF] Executing endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 12:47:30.116 +02:00 [INF] Route matched with {action = "RetryTransaction", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] RetryTransaction(Int32, System.Threading.CancellationToken) on controller TransactionRetrySystem.API.Controllers.TransactionsController (TransactionRetrySystem.API).
+2025-11-20 12:47:30.322 +02:00 [INF] Executed DbCommand (53ms) [Parameters=[@__transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[TransactionId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[TransactionId] = @__transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 12:47:30.537 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-11-20 12:47:30.542 +02:00 [INF] Executed action TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API) in 420.0399ms
+2025-11-20 12:47:30.544 +02:00 [INF] Executed endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 12:47:30.551 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7106/api/v1/Transactions/1/retry - 200 null text/plain; charset=utf-8 474.2616ms
+2025-11-20 12:47:30.867 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[@__8__locals1_transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[TransactionId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[TransactionId] = @__8__locals1_transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 12:47:30.951 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__transaction_UserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[UserId] = @__transaction_UserId_0 AND [t].[StatusId] = 5 AND [t].[AttemptedAt] >= DATEADD(hour, CAST(-1.0E0 AS int), GETUTCDATE())
+2025-11-20 12:47:31.061 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [StatusId] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2025-11-20 12:48:32.954 +02:00 [INF] Executed DbCommand (40ms) [Parameters=[@p4='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [ErrorMessage] = @p1, [ErrorTypeId] = @p2, [StatusId] = @p3
+OUTPUT 1
+WHERE [Id] = @p4;
+2025-11-20 12:48:33.011 +02:00 [ERR] An exception occurred in the database while saving changes for context type 'TransactionRetrySystem.Infrastructure.Context.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_TransactionAttempts_ErrorTypes_ErrorTypeId". The conflict occurred in database "TransactionRetrySystem", table "dbo.ErrorTypes", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:977633f2-1f06-4d23-8101-45610d49bbee
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_TransactionAttempts_ErrorTypes_ErrorTypeId". The conflict occurred in database "TransactionRetrySystem", table "dbo.ErrorTypes", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:977633f2-1f06-4d23-8101-45610d49bbee
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-11-20 12:48:33.154 +02:00 [INF] Executed DbCommand (40ms) [Parameters=[@__gateway_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[FailureCount], [c].[Gateway], [c].[LastFailureTime], [c].[State]
+FROM [CircuitBreakerStates] AS [c]
+WHERE [c].[Gateway] = @__gateway_0
+2025-11-20 12:48:33.241 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [CircuitBreakerStates] SET [CreatedAt] = @p0, [FailureCount] = @p1, [LastFailureTime] = @p2
+OUTPUT 1
+WHERE [Id] = @p3;
+2025-11-20 12:48:33.242 +02:00 [INF] Executed DbCommand (23ms) [Parameters=[@p4='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [ErrorMessage] = @p1, [ErrorTypeId] = @p2, [StatusId] = @p3
+OUTPUT 1
+WHERE [Id] = @p4;
+2025-11-20 13:04:03.711 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-20 13:04:04.449 +02:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Statuses] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 13:04:04.485 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ErrorTypes] AS [e]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 13:04:04.495 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 13:04:04.505 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Transactions] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 13:04:04.513 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TransactionAttempts] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 13:04:04.782 +02:00 [INF] Configured endpoint transaction-retry-queue, Consumer: TransactionRetrySystem.Application.Services.MassTransit.RetryTransactionConsumer
+2025-11-20 13:04:05.223 +02:00 [INF] Now listening on: https://localhost:7106
+2025-11-20 13:04:05.225 +02:00 [INF] Now listening on: http://localhost:5050
+2025-11-20 13:04:05.281 +02:00 [INF] Bus started: "rabbitmq://localhost/"
+2025-11-20 13:04:05.328 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-20 13:04:05.329 +02:00 [INF] Hosting environment: Development
+2025-11-20 13:04:05.330 +02:00 [INF] Content root path: C:\Users\User\source\repos\TransactionRetrySystem\TransactionRetrySystem.API
+2025-11-20 13:04:06.113 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/index.html - null null
+2025-11-20 13:04:06.381 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/index.html - 200 null text/html;charset=utf-8 285.0499ms
+2025-11-20 13:04:06.394 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-20 13:04:06.405 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_vs/browserLink - null null
+2025-11-20 13:04:06.410 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - 200 16537 application/javascript; charset=utf-8 17.0514ms
+2025-11-20 13:04:06.471 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_vs/browserLink - 200 null text/javascript; charset=UTF-8 67.0944ms
+2025-11-20 13:04:06.504 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - null null
+2025-11-20 13:04:06.524 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 20.734ms
+2025-11-20 15:07:40.996 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-20 15:07:41.856 +02:00 [INF] Executed DbCommand (49ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Statuses] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:07:41.903 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ErrorTypes] AS [e]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:07:41.920 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:07:41.935 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Transactions] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:07:41.946 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TransactionAttempts] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:07:42.235 +02:00 [INF] Configured endpoint transaction-retry-queue, Consumer: TransactionRetrySystem.Application.Services.TransactionConsumer.RetryTransactionConsumer
+2025-11-20 15:07:42.685 +02:00 [INF] Now listening on: https://localhost:7106
+2025-11-20 15:07:42.686 +02:00 [INF] Now listening on: http://localhost:5050
+2025-11-20 15:07:42.721 +02:00 [INF] Bus started: "rabbitmq://localhost/"
+2025-11-20 15:07:42.785 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-20 15:07:42.787 +02:00 [INF] Hosting environment: Development
+2025-11-20 15:07:42.787 +02:00 [INF] Content root path: C:\Users\User\source\repos\TransactionRetrySystem\TransactionRetrySystem.API
+2025-11-20 15:07:44.007 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/index.html - null null
+2025-11-20 15:07:44.296 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/index.html - 200 null text/html;charset=utf-8 303.7986ms
+2025-11-20 15:07:44.313 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-20 15:07:44.322 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_vs/browserLink - null null
+2025-11-20 15:07:44.328 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - 200 16537 application/javascript; charset=utf-8 15.3115ms
+2025-11-20 15:07:44.398 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_vs/browserLink - 200 null text/javascript; charset=UTF-8 77.2373ms
+2025-11-20 15:07:44.429 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - null null
+2025-11-20 15:07:44.452 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 24.8004ms
+2025-11-20 15:08:06.144 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/api/v1/Transactions/1/retry-history - null null
+2025-11-20 15:08:06.170 +02:00 [INF] Executing endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.GetRetryHistory (TransactionRetrySystem.API)'
+2025-11-20 15:08:06.200 +02:00 [INF] Route matched with {action = "GetRetryHistory", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[TransactionRetrySystem.Application.Dtos.Responses.RetryHistoryResponse]] GetRetryHistory(Int32, System.Threading.CancellationToken) on controller TransactionRetrySystem.API.Controllers.TransactionsController (TransactionRetrySystem.API).
+2025-11-20 15:08:06.476 +02:00 [INF] Executed DbCommand (80ms) [Parameters=[@__transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[CreatedAt], [r].[RetryCount], [r].[ScheduledRetryTime], [r].[StatusId], [r].[TransactionId], [s].[Id], [s].[CreatedAt], [s].[Name]
+FROM [RetryQueue] AS [r]
+INNER JOIN [Statuses] AS [s] ON [r].[StatusId] = [s].[Id]
+WHERE [r].[TransactionId] = @__transactionId_0
+ORDER BY [r].[RetryCount]
+2025-11-20 15:08:06.551 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[TransactionRetrySystem.Application.Dtos.Responses.RetryHistoryResponse, TransactionRetrySystem.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-20 15:08:06.570 +02:00 [INF] Executed action TransactionRetrySystem.API.Controllers.TransactionsController.GetRetryHistory (TransactionRetrySystem.API) in 361.7633ms
+2025-11-20 15:08:06.572 +02:00 [INF] Executed endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.GetRetryHistory (TransactionRetrySystem.API)'
+2025-11-20 15:08:06.576 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/api/v1/Transactions/1/retry-history - 200 null application/json; charset=utf-8 432.3657ms
+2025-11-20 15:08:31.784 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/api/v1/Transactions/2/retry-history - null null
+2025-11-20 15:08:31.794 +02:00 [INF] Executing endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.GetRetryHistory (TransactionRetrySystem.API)'
+2025-11-20 15:08:31.796 +02:00 [INF] Route matched with {action = "GetRetryHistory", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[TransactionRetrySystem.Application.Dtos.Responses.RetryHistoryResponse]] GetRetryHistory(Int32, System.Threading.CancellationToken) on controller TransactionRetrySystem.API.Controllers.TransactionsController (TransactionRetrySystem.API).
+2025-11-20 15:08:31.822 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[CreatedAt], [r].[RetryCount], [r].[ScheduledRetryTime], [r].[StatusId], [r].[TransactionId], [s].[Id], [s].[CreatedAt], [s].[Name]
+FROM [RetryQueue] AS [r]
+INNER JOIN [Statuses] AS [s] ON [r].[StatusId] = [s].[Id]
+WHERE [r].[TransactionId] = @__transactionId_0
+ORDER BY [r].[RetryCount]
+2025-11-20 15:08:31.826 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[TransactionRetrySystem.Application.Dtos.Responses.RetryHistoryResponse, TransactionRetrySystem.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-20 15:08:31.828 +02:00 [INF] Executed action TransactionRetrySystem.API.Controllers.TransactionsController.GetRetryHistory (TransactionRetrySystem.API) in 30.0589ms
+2025-11-20 15:08:31.831 +02:00 [INF] Executed endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.GetRetryHistory (TransactionRetrySystem.API)'
+2025-11-20 15:08:31.836 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/api/v1/Transactions/2/retry-history - 200 null application/json; charset=utf-8 49.0961ms
+2025-11-20 15:12:18.225 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-20 15:12:18.434 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-20 15:12:18.448 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-20 15:12:18.449 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-20 15:12:18.499 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2025-11-20 15:12:18.500 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-20 15:12:18.501 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-20 15:12:18.505 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-11-20 15:12:18.513 +02:00 [INF] Applying migration '20251120091107_InitialMigration'.
+2025-11-20 15:12:18.546 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [CircuitBreakerStates] (
+    [Id] int NOT NULL IDENTITY,
+    [Gateway] nvarchar(max) NULL,
+    [State] nvarchar(max) NULL,
+    [FailureCount] int NOT NULL,
+    [LastFailureTime] datetime2 NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_CircuitBreakerStates] PRIMARY KEY ([Id])
+);
+2025-11-20 15:12:18.549 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [ErrorTypes] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_ErrorTypes] PRIMARY KEY ([Id])
+);
+2025-11-20 15:12:18.551 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Statuses] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Statuses] PRIMARY KEY ([Id])
+);
+2025-11-20 15:12:18.554 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] int NOT NULL IDENTITY,
+    [FullName] nvarchar(max) NULL,
+    [Email] nvarchar(max) NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2025-11-20 15:12:18.557 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RetryQueue] (
+    [Id] int NOT NULL IDENTITY,
+    [TransactionId] int NOT NULL,
+    [StatusId] int NOT NULL,
+    [ScheduledRetryTime] datetime2 NOT NULL,
+    [RetryCount] int NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_RetryQueue] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RetryQueue_Statuses_StatusId] FOREIGN KEY ([StatusId]) REFERENCES [Statuses] ([Id]) ON DELETE CASCADE
+);
+2025-11-20 15:12:18.563 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Transactions] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] int NOT NULL,
+    [Amount] decimal(18,2) NOT NULL,
+    [Currency] nvarchar(max) NULL,
+    [Description] nvarchar(max) NULL,
+    [Gateway] nvarchar(max) NULL,
+    [StatusId] int NOT NULL,
+    [ErrorTypeId] int NOT NULL,
+    [ErrorMessage] nvarchar(max) NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Transactions] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Transactions_ErrorTypes_ErrorTypeId] FOREIGN KEY ([ErrorTypeId]) REFERENCES [ErrorTypes] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Transactions_Statuses_StatusId] FOREIGN KEY ([StatusId]) REFERENCES [Statuses] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Transactions_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2025-11-20 15:12:18.566 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [TransactionAttempts] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] int NOT NULL,
+    [TransactionId] int NOT NULL,
+    [StatusId] int NOT NULL,
+    [ErrorTypeId] int NOT NULL,
+    [AttemptNumber] int NOT NULL,
+    [ErrorMessage] nvarchar(max) NULL,
+    [AttemptedAt] datetime2 NOT NULL,
+    [ResponseTime] time NULL,
+    [GatewayResponse] nvarchar(max) NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_TransactionAttempts] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_TransactionAttempts_ErrorTypes_ErrorTypeId] FOREIGN KEY ([ErrorTypeId]) REFERENCES [ErrorTypes] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_TransactionAttempts_Statuses_StatusId] FOREIGN KEY ([StatusId]) REFERENCES [Statuses] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_TransactionAttempts_Transactions_TransactionId] FOREIGN KEY ([TransactionId]) REFERENCES [Transactions] ([Id]) ON DELETE NO ACTION
+);
+2025-11-20 15:12:18.597 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_RetryQueue_StatusId] ON [RetryQueue] ([StatusId]);
+2025-11-20 15:12:18.598 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_TransactionAttempts_ErrorTypeId] ON [TransactionAttempts] ([ErrorTypeId]);
+2025-11-20 15:12:18.599 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_TransactionAttempts_StatusId] ON [TransactionAttempts] ([StatusId]);
+2025-11-20 15:12:18.600 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_TransactionAttempts_TransactionId] ON [TransactionAttempts] ([TransactionId]);
+2025-11-20 15:12:18.601 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Transactions_ErrorTypeId] ON [Transactions] ([ErrorTypeId]);
+2025-11-20 15:12:18.602 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Transactions_StatusId] ON [Transactions] ([StatusId]);
+2025-11-20 15:12:18.603 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Transactions_UserId] ON [Transactions] ([UserId]);
+2025-11-20 15:12:18.606 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20251120091107_InitialMigration', N'8.0.0');
+2025-11-20 15:12:37.867 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-20 15:12:38.533 +02:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Statuses] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:12:38.911 +02:00 [INF] Executed DbCommand (55ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (DbType = DateTime2), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (Size = 4000), @p8='?' (DbType = DateTime2), @p9='?' (Size = 4000), @p10='?' (DbType = DateTime2), @p11='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Statuses] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1),
+(@p4, @p5, 2),
+(@p6, @p7, 3),
+(@p8, @p9, 4),
+(@p10, @p11, 5)) AS i ([CreatedAt], [Name], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Name])
+VALUES (i.[CreatedAt], i.[Name])
+OUTPUT INSERTED.[Id], i._Position;
+2025-11-20 15:12:38.951 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ErrorTypes] AS [e]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:12:38.986 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (DbType = DateTime2), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (Size = 4000), @p8='?' (DbType = DateTime2), @p9='?' (Size = 4000), @p10='?' (DbType = DateTime2), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime2), @p13='?' (Size = 4000), @p14='?' (DbType = DateTime2), @p15='?' (Size = 4000), @p16='?' (DbType = DateTime2), @p17='?' (Size = 4000), @p18='?' (DbType = DateTime2), @p19='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [ErrorTypes] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1),
+(@p4, @p5, 2),
+(@p6, @p7, 3),
+(@p8, @p9, 4),
+(@p10, @p11, 5),
+(@p12, @p13, 6),
+(@p14, @p15, 7),
+(@p16, @p17, 8),
+(@p18, @p19, 9)) AS i ([CreatedAt], [Name], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Name])
+VALUES (i.[CreatedAt], i.[Name])
+OUTPUT INSERTED.[Id], i._Position;
+2025-11-20 15:12:39.000 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:12:39.038 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (Size = 4000), @p8='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Users] USING (
+VALUES (@p0, @p1, @p2, 0),
+(@p3, @p4, @p5, 1),
+(@p6, @p7, @p8, 2)) AS i ([CreatedAt], [Email], [FullName], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Email], [FullName])
+VALUES (i.[CreatedAt], i.[Email], i.[FullName])
+OUTPUT INSERTED.[Id], i._Position;
+2025-11-20 15:12:39.050 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Transactions] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:12:39.152 +02:00 [INF] Executed DbCommand (43ms) [Parameters=[@p0='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Int32), @p6='?' (Size = 4000), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p10='?' (DbType = DateTime2), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Int32), @p15='?' (Size = 4000), @p16='?' (DbType = Int32), @p17='?' (DbType = Int32), @p18='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p19='?' (DbType = DateTime2), @p20='?' (Size = 4000), @p21='?' (Size = 4000), @p22='?' (Size = 4000), @p23='?' (DbType = Int32), @p24='?' (Size = 4000), @p25='?' (DbType = Int32), @p26='?' (DbType = Int32), @p27='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p28='?' (DbType = DateTime2), @p29='?' (Size = 4000), @p30='?' (Size = 4000), @p31='?' (Size = 4000), @p32='?' (DbType = Int32), @p33='?' (Size = 4000), @p34='?' (DbType = Int32), @p35='?' (DbType = Int32), @p36='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p37='?' (DbType = DateTime2), @p38='?' (Size = 4000), @p39='?' (Size = 4000), @p40='?' (Size = 4000), @p41='?' (DbType = Int32), @p42='?' (Size = 4000), @p43='?' (DbType = Int32), @p44='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Transactions] USING (
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, 0),
+(@p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, 1),
+(@p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26, 2),
+(@p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, 3),
+(@p36, @p37, @p38, @p39, @p40, @p41, @p42, @p43, @p44, 4)) AS i ([Amount], [CreatedAt], [Currency], [Description], [ErrorMessage], [ErrorTypeId], [Gateway], [StatusId], [UserId], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Amount], [CreatedAt], [Currency], [Description], [ErrorMessage], [ErrorTypeId], [Gateway], [StatusId], [UserId])
+VALUES (i.[Amount], i.[CreatedAt], i.[Currency], i.[Description], i.[ErrorMessage], i.[ErrorTypeId], i.[Gateway], i.[StatusId], i.[UserId])
+OUTPUT INSERTED.[Id], i._Position;
+2025-11-20 15:12:39.172 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TransactionAttempts] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:12:39.263 +02:00 [INF] Executed DbCommand (25ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Time), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (DbType = DateTime2), @p12='?' (DbType = DateTime2), @p13='?' (Size = 4000), @p14='?' (DbType = Int32), @p15='?' (Size = 4000), @p16='?' (DbType = Time), @p17='?' (DbType = Int32), @p18='?' (DbType = Int32), @p19='?' (DbType = Int32), @p20='?' (DbType = Int32), @p21='?' (DbType = DateTime2), @p22='?' (DbType = DateTime2), @p23='?' (Size = 4000), @p24='?' (DbType = Int32), @p25='?' (Size = 4000), @p26='?' (DbType = Time), @p27='?' (DbType = Int32), @p28='?' (DbType = Int32), @p29='?' (DbType = Int32), @p30='?' (DbType = Int32), @p31='?' (DbType = DateTime2), @p32='?' (DbType = DateTime2), @p33='?' (Size = 4000), @p34='?' (DbType = Int32), @p35='?' (Size = 4000), @p36='?' (DbType = Time), @p37='?' (DbType = Int32), @p38='?' (DbType = Int32), @p39='?' (DbType = Int32), @p40='?' (DbType = Int32), @p41='?' (DbType = DateTime2), @p42='?' (DbType = DateTime2), @p43='?' (Size = 4000), @p44='?' (DbType = Int32), @p45='?' (Size = 4000), @p46='?' (DbType = Time), @p47='?' (DbType = Int32), @p48='?' (DbType = Int32), @p49='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [TransactionAttempts] USING (
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, 0),
+(@p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, 1),
+(@p20, @p21, @p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29, 2),
+(@p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38, @p39, 3),
+(@p40, @p41, @p42, @p43, @p44, @p45, @p46, @p47, @p48, @p49, 4)) AS i ([AttemptNumber], [AttemptedAt], [CreatedAt], [ErrorMessage], [ErrorTypeId], [GatewayResponse], [ResponseTime], [StatusId], [TransactionId], [UserId], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([AttemptNumber], [AttemptedAt], [CreatedAt], [ErrorMessage], [ErrorTypeId], [GatewayResponse], [ResponseTime], [StatusId], [TransactionId], [UserId])
+VALUES (i.[AttemptNumber], i.[AttemptedAt], i.[CreatedAt], i.[ErrorMessage], i.[ErrorTypeId], i.[GatewayResponse], i.[ResponseTime], i.[StatusId], i.[TransactionId], i.[UserId])
+OUTPUT INSERTED.[Id], i._Position;
+2025-11-20 15:12:39.554 +02:00 [INF] Configured endpoint transaction-retry-queue, Consumer: TransactionRetrySystem.Application.Services.TransactionConsumer.RetryTransactionConsumer
+2025-11-20 15:12:40.011 +02:00 [INF] Now listening on: https://localhost:7106
+2025-11-20 15:12:40.012 +02:00 [INF] Now listening on: http://localhost:5050
+2025-11-20 15:12:40.084 +02:00 [INF] Bus started: "rabbitmq://localhost/"
+2025-11-20 15:12:40.086 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-20 15:12:40.087 +02:00 [INF] Hosting environment: Development
+2025-11-20 15:12:40.089 +02:00 [INF] Content root path: C:\Users\User\source\repos\TransactionRetrySystem\TransactionRetrySystem.API
+2025-11-20 15:12:41.218 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/index.html - null null
+2025-11-20 15:12:41.497 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/index.html - 200 null text/html;charset=utf-8 294.1984ms
+2025-11-20 15:12:41.516 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-20 15:12:41.516 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_vs/browserLink - null null
+2025-11-20 15:12:41.536 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - 200 16537 application/javascript; charset=utf-8 20.2864ms
+2025-11-20 15:12:41.589 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_vs/browserLink - 200 null text/javascript; charset=UTF-8 73.8661ms
+2025-11-20 15:12:41.617 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - null null
+2025-11-20 15:12:41.636 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 19.505ms
+2025-11-20 15:14:24.861 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7106/api/v1/Transactions/1/retry - null 0
+2025-11-20 15:14:24.881 +02:00 [INF] Executing endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 15:14:24.907 +02:00 [INF] Route matched with {action = "RetryTransaction", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] RetryTransaction(Int32, System.Threading.CancellationToken) on controller TransactionRetrySystem.API.Controllers.TransactionsController (TransactionRetrySystem.API).
+2025-11-20 15:14:25.058 +02:00 [INF] Executed DbCommand (21ms) [Parameters=[@__transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[TransactionId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[TransactionId] = @__transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:14:25.220 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-11-20 15:14:25.227 +02:00 [INF] Executed action TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API) in 313.8871ms
+2025-11-20 15:14:25.230 +02:00 [INF] Executed endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 15:14:25.234 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7106/api/v1/Transactions/1/retry - 200 null text/plain; charset=utf-8 373.5072ms
+2025-11-20 15:14:30.048 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__8__locals1_transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[TransactionId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[TransactionId] = @__8__locals1_transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:14:45.757 +02:00 [INF] Executed DbCommand (29ms) [Parameters=[@__transaction_UserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[UserId] = @__transaction_UserId_0 AND [t].[StatusId] = 5 AND [t].[AttemptedAt] >= DATEADD(hour, CAST(-1.0E0 AS int), GETUTCDATE())
+2025-11-20 15:15:01.226 +02:00 [INF] Executed DbCommand (17ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [StatusId] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2025-11-20 15:15:22.495 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[@p4='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [ErrorMessage] = @p1, [ErrorTypeId] = @p2, [StatusId] = @p3
+OUTPUT 1
+WHERE [Id] = @p4;
+2025-11-20 15:15:22.542 +02:00 [ERR] An exception occurred in the database while saving changes for context type 'TransactionRetrySystem.Infrastructure.Context.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_TransactionAttempts_ErrorTypes_ErrorTypeId". The conflict occurred in database "TransactionRetrySystem", table "dbo.ErrorTypes", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:2915dad2-bf3c-4e14-a10a-a473b6a894bb
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_TransactionAttempts_ErrorTypes_ErrorTypeId". The conflict occurred in database "TransactionRetrySystem", table "dbo.ErrorTypes", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:2915dad2-bf3c-4e14-a10a-a473b6a894bb
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-11-20 15:15:22.643 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__gateway_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[FailureCount], [c].[Gateway], [c].[LastFailureTime], [c].[State]
+FROM [CircuitBreakerStates] AS [c]
+WHERE [c].[Gateway] = @__gateway_0
+2025-11-20 15:15:22.706 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[@p4='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [ErrorMessage] = @p1, [ErrorTypeId] = @p2, [StatusId] = @p3
+OUTPUT 1
+WHERE [Id] = @p4;
+2025-11-20 15:15:22.728 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [CircuitBreakerStates] ([CreatedAt], [FailureCount], [Gateway], [LastFailureTime], [State])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-11-20 15:15:35.977 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7106/api/v1/Transactions/2/retry - null 0
+2025-11-20 15:15:35.989 +02:00 [INF] Executing endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 15:15:35.991 +02:00 [INF] Route matched with {action = "RetryTransaction", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] RetryTransaction(Int32, System.Threading.CancellationToken) on controller TransactionRetrySystem.API.Controllers.TransactionsController (TransactionRetrySystem.API).
+2025-11-20 15:15:36.007 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[TransactionId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[TransactionId] = @__transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:15:36.023 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-11-20 15:15:38.776 +02:00 [INF] Executed action TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API) in 2782.3666ms
+2025-11-20 15:15:38.784 +02:00 [INF] Executed endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 15:15:38.789 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7106/api/v1/Transactions/2/retry - 200 null text/plain; charset=utf-8 2813.4594ms
+2025-11-20 15:15:38.807 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__8__locals1_transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[TransactionId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[TransactionId] = @__8__locals1_transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:15:39.444 +02:00 [INF] Executed DbCommand (18ms) [Parameters=[@__transaction_UserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[UserId] = @__transaction_UserId_0 AND [t].[StatusId] = 5 AND [t].[AttemptedAt] >= DATEADD(hour, CAST(-1.0E0 AS int), GETUTCDATE())
+2025-11-20 15:15:40.632 +02:00 [INF] Executed DbCommand (20ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [StatusId] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2025-11-20 15:18:18.835 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-20 15:18:19.461 +02:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Statuses] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:18:19.503 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ErrorTypes] AS [e]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:18:19.513 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:18:19.522 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Transactions] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:18:19.531 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TransactionAttempts] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:18:19.801 +02:00 [INF] Configured endpoint transaction-retry-queue, Consumer: TransactionRetrySystem.Application.Services.TransactionConsumer.RetryTransactionConsumer
+2025-11-20 15:18:20.208 +02:00 [INF] Now listening on: https://localhost:7106
+2025-11-20 15:18:20.209 +02:00 [INF] Now listening on: http://localhost:5050
+2025-11-20 15:18:20.262 +02:00 [INF] Bus started: "rabbitmq://localhost/"
+2025-11-20 15:18:20.308 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-20 15:18:20.310 +02:00 [INF] Hosting environment: Development
+2025-11-20 15:18:20.311 +02:00 [INF] Content root path: C:\Users\User\source\repos\TransactionRetrySystem\TransactionRetrySystem.API
+2025-11-20 15:18:23.582 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/index.html - null null
+2025-11-20 15:18:23.681 +02:00 [INF] Executed DbCommand (46ms) [Parameters=[@__8__locals1_transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[TransactionId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[TransactionId] = @__8__locals1_transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:18:23.790 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/index.html - 200 null text/html;charset=utf-8 216.15ms
+2025-11-20 15:18:23.837 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__transaction_UserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[UserId] = @__transaction_UserId_0 AND [t].[StatusId] = 5 AND [t].[AttemptedAt] >= DATEADD(hour, CAST(-1.0E0 AS int), GETUTCDATE())
+2025-11-20 15:18:23.869 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-20 15:18:23.869 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_vs/browserLink - null null
+2025-11-20 15:18:23.885 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - 200 16537 application/javascript; charset=utf-8 15.3502ms
+2025-11-20 15:18:23.935 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_vs/browserLink - 200 null text/javascript; charset=UTF-8 65.7411ms
+2025-11-20 15:18:23.990 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - null null
+2025-11-20 15:18:23.990 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [StatusId] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2025-11-20 15:18:24.013 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 23.0412ms
+2025-11-20 15:18:46.179 +02:00 [INF] Executed DbCommand (17ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RetryQueue] ([CreatedAt], [RetryCount], [ScheduledRetryTime], [StatusId], [TransactionId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-11-20 15:18:52.560 +02:00 [INF] Executed DbCommand (21ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [ErrorMessage] = @p1, [StatusId] = @p2
+OUTPUT 1
+WHERE [Id] = @p3;
+2025-11-20 15:19:21.795 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7106/api/v1/Transactions/3/retry - null 0
+2025-11-20 15:19:21.811 +02:00 [INF] Executing endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 15:19:21.836 +02:00 [INF] Route matched with {action = "RetryTransaction", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] RetryTransaction(Int32, System.Threading.CancellationToken) on controller TransactionRetrySystem.API.Controllers.TransactionsController (TransactionRetrySystem.API).
+2025-11-20 15:19:21.881 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[TransactionId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[TransactionId] = @__transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:19:30.435 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-11-20 15:19:30.437 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__8__locals1_transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[TransactionId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[TransactionId] = @__8__locals1_transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:19:30.946 +02:00 [INF] Executed action TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API) in 8616.779ms
+2025-11-20 15:19:31.248 +02:00 [INF] Executed endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 15:19:31.810 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7106/api/v1/Transactions/3/retry - 200 null text/plain; charset=utf-8 10015.1833ms
+2025-11-20 15:19:31.927 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[@__transaction_UserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[UserId] = @__transaction_UserId_0 AND [t].[StatusId] = 5 AND [t].[AttemptedAt] >= DATEADD(hour, CAST(-1.0E0 AS int), GETUTCDATE())
+2025-11-20 15:19:33.749 +02:00 [INF] Executed DbCommand (17ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [StatusId] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2025-11-20 15:20:06.852 +02:00 [INF] Executed DbCommand (547ms) [Parameters=[@__8__locals1_transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[TransactionId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[TransactionId] = @__8__locals1_transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:20:08.888 +02:00 [INF] Executed DbCommand (23ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RetryQueue] ([CreatedAt], [RetryCount], [ScheduledRetryTime], [StatusId], [TransactionId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-11-20 15:20:10.427 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [ErrorMessage] = @p1, [StatusId] = @p2
+OUTPUT 1
+WHERE [Id] = @p3;
+2025-11-20 15:20:21.116 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__8__locals1_transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[TransactionId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[TransactionId] = @__8__locals1_transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:25:22.114 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-20 15:25:22.147 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-20 15:25:22.148 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-20 15:25:22.189 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2025-11-20 15:25:22.190 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-20 15:25:22.191 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-20 15:25:22.197 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-11-20 15:25:22.205 +02:00 [INF] Applying migration '20251120132402_InitialMigration'.
+2025-11-20 15:25:22.232 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [CircuitBreakerStates] (
+    [Id] int NOT NULL IDENTITY,
+    [Gateway] nvarchar(max) NULL,
+    [State] nvarchar(max) NULL,
+    [FailureCount] int NOT NULL,
+    [LastFailureTime] datetime2 NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_CircuitBreakerStates] PRIMARY KEY ([Id])
+);
+2025-11-20 15:25:22.236 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [ErrorTypes] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_ErrorTypes] PRIMARY KEY ([Id])
+);
+2025-11-20 15:25:22.239 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Statuses] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Statuses] PRIMARY KEY ([Id])
+);
+2025-11-20 15:25:22.242 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] int NOT NULL IDENTITY,
+    [FullName] nvarchar(max) NULL,
+    [Email] nvarchar(max) NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2025-11-20 15:25:22.245 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RetryQueue] (
+    [Id] int NOT NULL IDENTITY,
+    [TransactionId] int NOT NULL,
+    [StatusId] int NOT NULL,
+    [ScheduledRetryTime] datetime2 NOT NULL,
+    [RetryCount] int NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_RetryQueue] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RetryQueue_Statuses_StatusId] FOREIGN KEY ([StatusId]) REFERENCES [Statuses] ([Id]) ON DELETE CASCADE
+);
+2025-11-20 15:25:22.250 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [TransactionAttempts] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] int NOT NULL,
+    [TransactionId] int NOT NULL,
+    [StatusId] int NOT NULL,
+    [ErrorTypeId] int NOT NULL,
+    [AttemptNumber] int NOT NULL,
+    [ErrorMessage] nvarchar(max) NULL,
+    [AttemptedAt] datetime2 NOT NULL,
+    [ResponseTime] time NULL,
+    [GatewayResponse] nvarchar(max) NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_TransactionAttempts] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_TransactionAttempts_ErrorTypes_ErrorTypeId] FOREIGN KEY ([ErrorTypeId]) REFERENCES [ErrorTypes] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_TransactionAttempts_Statuses_StatusId] FOREIGN KEY ([StatusId]) REFERENCES [Statuses] ([Id]) ON DELETE CASCADE
+);
+2025-11-20 15:25:22.251 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_RetryQueue_StatusId] ON [RetryQueue] ([StatusId]);
+2025-11-20 15:25:22.252 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_TransactionAttempts_ErrorTypeId] ON [TransactionAttempts] ([ErrorTypeId]);
+2025-11-20 15:25:22.253 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_TransactionAttempts_StatusId] ON [TransactionAttempts] ([StatusId]);
+2025-11-20 15:25:22.255 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20251120132402_InitialMigration', N'8.0.0');
+2025-11-20 15:26:44.494 +02:00 [INF] Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Statuses] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:26:44.879 +02:00 [INF] Executed DbCommand (56ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (DbType = DateTime2), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (Size = 4000), @p8='?' (DbType = DateTime2), @p9='?' (Size = 4000), @p10='?' (DbType = DateTime2), @p11='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Statuses] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1),
+(@p4, @p5, 2),
+(@p6, @p7, 3),
+(@p8, @p9, 4),
+(@p10, @p11, 5)) AS i ([CreatedAt], [Name], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Name])
+VALUES (i.[CreatedAt], i.[Name])
+OUTPUT INSERTED.[Id], i._Position;
+2025-11-20 15:26:44.933 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ErrorTypes] AS [e]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:26:44.970 +02:00 [INF] Executed DbCommand (13ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (DbType = DateTime2), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (Size = 4000), @p8='?' (DbType = DateTime2), @p9='?' (Size = 4000), @p10='?' (DbType = DateTime2), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime2), @p13='?' (Size = 4000), @p14='?' (DbType = DateTime2), @p15='?' (Size = 4000), @p16='?' (DbType = DateTime2), @p17='?' (Size = 4000), @p18='?' (DbType = DateTime2), @p19='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [ErrorTypes] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1),
+(@p4, @p5, 2),
+(@p6, @p7, 3),
+(@p8, @p9, 4),
+(@p10, @p11, 5),
+(@p12, @p13, 6),
+(@p14, @p15, 7),
+(@p16, @p17, 8),
+(@p18, @p19, 9)) AS i ([CreatedAt], [Name], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Name])
+VALUES (i.[CreatedAt], i.[Name])
+OUTPUT INSERTED.[Id], i._Position;
+2025-11-20 15:26:44.990 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:26:45.032 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (Size = 4000), @p8='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Users] USING (
+VALUES (@p0, @p1, @p2, 0),
+(@p3, @p4, @p5, 1),
+(@p6, @p7, @p8, 2)) AS i ([CreatedAt], [Email], [FullName], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Email], [FullName])
+VALUES (i.[CreatedAt], i.[Email], i.[FullName])
+OUTPUT INSERTED.[Id], i._Position;
+2025-11-20 15:26:45.054 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TransactionAttempts] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:26:45.143 +02:00 [INF] Executed DbCommand (23ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Time), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (DbType = DateTime2), @p12='?' (DbType = DateTime2), @p13='?' (Size = 4000), @p14='?' (DbType = Int32), @p15='?' (Size = 4000), @p16='?' (DbType = Time), @p17='?' (DbType = Int32), @p18='?' (DbType = Int32), @p19='?' (DbType = Int32), @p20='?' (DbType = Int32), @p21='?' (DbType = DateTime2), @p22='?' (DbType = DateTime2), @p23='?' (Size = 4000), @p24='?' (DbType = Int32), @p25='?' (Size = 4000), @p26='?' (DbType = Time), @p27='?' (DbType = Int32), @p28='?' (DbType = Int32), @p29='?' (DbType = Int32), @p30='?' (DbType = Int32), @p31='?' (DbType = DateTime2), @p32='?' (DbType = DateTime2), @p33='?' (Size = 4000), @p34='?' (DbType = Int32), @p35='?' (Size = 4000), @p36='?' (DbType = Time), @p37='?' (DbType = Int32), @p38='?' (DbType = Int32), @p39='?' (DbType = Int32), @p40='?' (DbType = Int32), @p41='?' (DbType = DateTime2), @p42='?' (DbType = DateTime2), @p43='?' (Size = 4000), @p44='?' (DbType = Int32), @p45='?' (Size = 4000), @p46='?' (DbType = Time), @p47='?' (DbType = Int32), @p48='?' (DbType = Int32), @p49='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [TransactionAttempts] USING (
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, 0),
+(@p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, 1),
+(@p20, @p21, @p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29, 2),
+(@p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38, @p39, 3),
+(@p40, @p41, @p42, @p43, @p44, @p45, @p46, @p47, @p48, @p49, 4)) AS i ([AttemptNumber], [AttemptedAt], [CreatedAt], [ErrorMessage], [ErrorTypeId], [GatewayResponse], [ResponseTime], [StatusId], [TransactionId], [UserId], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([AttemptNumber], [AttemptedAt], [CreatedAt], [ErrorMessage], [ErrorTypeId], [GatewayResponse], [ResponseTime], [StatusId], [TransactionId], [UserId])
+VALUES (i.[AttemptNumber], i.[AttemptedAt], i.[CreatedAt], i.[ErrorMessage], i.[ErrorTypeId], i.[GatewayResponse], i.[ResponseTime], i.[StatusId], i.[TransactionId], i.[UserId])
+OUTPUT INSERTED.[Id], i._Position;
+2025-11-20 15:26:45.460 +02:00 [INF] Configured endpoint transaction-retry-queue, Consumer: TransactionRetrySystem.Application.Services.TransactionConsumer.RetryTransactionConsumer
+2025-11-20 15:26:45.892 +02:00 [INF] Now listening on: https://localhost:7106
+2025-11-20 15:26:45.894 +02:00 [INF] Now listening on: http://localhost:5050
+2025-11-20 15:26:45.969 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-20 15:26:45.970 +02:00 [INF] Hosting environment: Development
+2025-11-20 15:26:45.971 +02:00 [INF] Content root path: C:\Users\User\source\repos\TransactionRetrySystem\TransactionRetrySystem.API
+2025-11-20 15:26:46.011 +02:00 [INF] Bus started: "rabbitmq://localhost/"
+2025-11-20 15:26:46.486 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/index.html - null null
+2025-11-20 15:26:46.766 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/index.html - 200 null text/html;charset=utf-8 295.6546ms
+2025-11-20 15:26:46.778 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-20 15:26:46.788 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_vs/browserLink - null null
+2025-11-20 15:26:46.793 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - 200 16537 application/javascript; charset=utf-8 15.3157ms
+2025-11-20 15:26:46.855 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_vs/browserLink - 200 null text/javascript; charset=UTF-8 67.6666ms
+2025-11-20 15:26:46.885 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - null null
+2025-11-20 15:26:46.907 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 22.5458ms
+2025-11-20 15:28:58.657 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-20 15:28:58.759 +02:00 [INF] Executed DbCommand (78ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-20 15:28:58.761 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-20 15:28:58.809 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2025-11-20 15:28:58.810 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-20 15:28:58.811 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-20 15:28:58.820 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-11-20 15:28:58.829 +02:00 [INF] Applying migration '20251120132851_InitialMigration'.
+2025-11-20 15:28:58.856 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [CircuitBreakerStates] (
+    [Id] int NOT NULL IDENTITY,
+    [Gateway] nvarchar(max) NULL,
+    [State] nvarchar(max) NULL,
+    [FailureCount] int NOT NULL,
+    [LastFailureTime] datetime2 NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_CircuitBreakerStates] PRIMARY KEY ([Id])
+);
+2025-11-20 15:28:58.859 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [ErrorTypes] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_ErrorTypes] PRIMARY KEY ([Id])
+);
+2025-11-20 15:28:58.863 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Statuses] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Statuses] PRIMARY KEY ([Id])
+);
+2025-11-20 15:28:58.865 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] int NOT NULL IDENTITY,
+    [FullName] nvarchar(max) NULL,
+    [Email] nvarchar(max) NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2025-11-20 15:28:58.870 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RetryQueue] (
+    [Id] int NOT NULL IDENTITY,
+    [TransactionId] int NOT NULL,
+    [StatusId] int NOT NULL,
+    [ScheduledRetryTime] datetime2 NOT NULL,
+    [RetryCount] int NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_RetryQueue] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RetryQueue_Statuses_StatusId] FOREIGN KEY ([StatusId]) REFERENCES [Statuses] ([Id]) ON DELETE CASCADE
+);
+2025-11-20 15:28:58.874 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [TransactionAttempts] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] int NOT NULL,
+    [StatusId] int NOT NULL,
+    [ErrorTypeId] int NOT NULL,
+    [AttemptNumber] int NOT NULL,
+    [ErrorMessage] nvarchar(max) NULL,
+    [AttemptedAt] datetime2 NOT NULL,
+    [ResponseTime] time NULL,
+    [GatewayResponse] nvarchar(max) NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_TransactionAttempts] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_TransactionAttempts_ErrorTypes_ErrorTypeId] FOREIGN KEY ([ErrorTypeId]) REFERENCES [ErrorTypes] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_TransactionAttempts_Statuses_StatusId] FOREIGN KEY ([StatusId]) REFERENCES [Statuses] ([Id]) ON DELETE CASCADE
+);
+2025-11-20 15:28:58.876 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_RetryQueue_StatusId] ON [RetryQueue] ([StatusId]);
+2025-11-20 15:28:58.877 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_TransactionAttempts_ErrorTypeId] ON [TransactionAttempts] ([ErrorTypeId]);
+2025-11-20 15:28:58.879 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_TransactionAttempts_StatusId] ON [TransactionAttempts] ([StatusId]);
+2025-11-20 15:28:58.881 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20251120132851_InitialMigration', N'8.0.0');
+2025-11-20 15:29:10.940 +02:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Statuses] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:29:11.302 +02:00 [INF] Executed DbCommand (55ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (DbType = DateTime2), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (Size = 4000), @p8='?' (DbType = DateTime2), @p9='?' (Size = 4000), @p10='?' (DbType = DateTime2), @p11='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Statuses] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1),
+(@p4, @p5, 2),
+(@p6, @p7, 3),
+(@p8, @p9, 4),
+(@p10, @p11, 5)) AS i ([CreatedAt], [Name], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Name])
+VALUES (i.[CreatedAt], i.[Name])
+OUTPUT INSERTED.[Id], i._Position;
+2025-11-20 15:29:11.363 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ErrorTypes] AS [e]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:29:11.403 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (DbType = DateTime2), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (Size = 4000), @p8='?' (DbType = DateTime2), @p9='?' (Size = 4000), @p10='?' (DbType = DateTime2), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime2), @p13='?' (Size = 4000), @p14='?' (DbType = DateTime2), @p15='?' (Size = 4000), @p16='?' (DbType = DateTime2), @p17='?' (Size = 4000), @p18='?' (DbType = DateTime2), @p19='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [ErrorTypes] USING (
+VALUES (@p0, @p1, 0),
+(@p2, @p3, 1),
+(@p4, @p5, 2),
+(@p6, @p7, 3),
+(@p8, @p9, 4),
+(@p10, @p11, 5),
+(@p12, @p13, 6),
+(@p14, @p15, 7),
+(@p16, @p17, 8),
+(@p18, @p19, 9)) AS i ([CreatedAt], [Name], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Name])
+VALUES (i.[CreatedAt], i.[Name])
+OUTPUT INSERTED.[Id], i._Position;
+2025-11-20 15:29:11.419 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:29:11.451 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (Size = 4000), @p8='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Users] USING (
+VALUES (@p0, @p1, @p2, 0),
+(@p3, @p4, @p5, 1),
+(@p6, @p7, @p8, 2)) AS i ([CreatedAt], [Email], [FullName], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([CreatedAt], [Email], [FullName])
+VALUES (i.[CreatedAt], i.[Email], i.[FullName])
+OUTPUT INSERTED.[Id], i._Position;
+2025-11-20 15:29:11.462 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TransactionAttempts] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:29:11.528 +02:00 [INF] Executed DbCommand (18ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = Time), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = DateTime2), @p11='?' (DbType = DateTime2), @p12='?' (Size = 4000), @p13='?' (DbType = Int32), @p14='?' (Size = 4000), @p15='?' (DbType = Time), @p16='?' (DbType = Int32), @p17='?' (DbType = Int32), @p18='?' (DbType = Int32), @p19='?' (DbType = DateTime2), @p20='?' (DbType = DateTime2), @p21='?' (Size = 4000), @p22='?' (DbType = Int32), @p23='?' (Size = 4000), @p24='?' (DbType = Time), @p25='?' (DbType = Int32), @p26='?' (DbType = Int32), @p27='?' (DbType = Int32), @p28='?' (DbType = DateTime2), @p29='?' (DbType = DateTime2), @p30='?' (Size = 4000), @p31='?' (DbType = Int32), @p32='?' (Size = 4000), @p33='?' (DbType = Time), @p34='?' (DbType = Int32), @p35='?' (DbType = Int32), @p36='?' (DbType = Int32), @p37='?' (DbType = DateTime2), @p38='?' (DbType = DateTime2), @p39='?' (Size = 4000), @p40='?' (DbType = Int32), @p41='?' (Size = 4000), @p42='?' (DbType = Time), @p43='?' (DbType = Int32), @p44='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [TransactionAttempts] USING (
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, 0),
+(@p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, 1),
+(@p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26, 2),
+(@p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, 3),
+(@p36, @p37, @p38, @p39, @p40, @p41, @p42, @p43, @p44, 4)) AS i ([AttemptNumber], [AttemptedAt], [CreatedAt], [ErrorMessage], [ErrorTypeId], [GatewayResponse], [ResponseTime], [StatusId], [UserId], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([AttemptNumber], [AttemptedAt], [CreatedAt], [ErrorMessage], [ErrorTypeId], [GatewayResponse], [ResponseTime], [StatusId], [UserId])
+VALUES (i.[AttemptNumber], i.[AttemptedAt], i.[CreatedAt], i.[ErrorMessage], i.[ErrorTypeId], i.[GatewayResponse], i.[ResponseTime], i.[StatusId], i.[UserId])
+OUTPUT INSERTED.[Id], i._Position;
+2025-11-20 15:29:11.805 +02:00 [INF] Configured endpoint transaction-retry-queue, Consumer: TransactionRetrySystem.Application.Services.TransactionConsumer.RetryTransactionConsumer
+2025-11-20 15:29:12.261 +02:00 [INF] Now listening on: https://localhost:7106
+2025-11-20 15:29:12.262 +02:00 [INF] Now listening on: http://localhost:5050
+2025-11-20 15:29:12.338 +02:00 [INF] Bus started: "rabbitmq://localhost/"
+2025-11-20 15:29:12.347 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-20 15:29:12.348 +02:00 [INF] Hosting environment: Development
+2025-11-20 15:29:12.350 +02:00 [INF] Content root path: C:\Users\User\source\repos\TransactionRetrySystem\TransactionRetrySystem.API
+2025-11-20 15:29:12.970 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/index.html - null null
+2025-11-20 15:29:13.241 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/index.html - 200 null text/html;charset=utf-8 288.2762ms
+2025-11-20 15:29:13.288 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_vs/browserLink - null null
+2025-11-20 15:29:13.288 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-20 15:29:13.316 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - 200 16537 application/javascript; charset=utf-8 28.2699ms
+2025-11-20 15:29:13.354 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_vs/browserLink - 200 null text/javascript; charset=UTF-8 67.43ms
+2025-11-20 15:29:13.383 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - null null
+2025-11-20 15:29:13.404 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 22.391ms
+2025-11-20 15:30:37.296 +02:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Statuses] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:30:37.377 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ErrorTypes] AS [e]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:30:37.385 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:30:37.394 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TransactionAttempts] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:30:37.684 +02:00 [INF] Configured endpoint transaction-retry-queue, Consumer: TransactionRetrySystem.Application.Services.TransactionConsumer.RetryTransactionConsumer
+2025-11-20 15:30:38.141 +02:00 [INF] Now listening on: https://localhost:7106
+2025-11-20 15:30:38.143 +02:00 [INF] Now listening on: http://localhost:5050
+2025-11-20 15:30:38.196 +02:00 [INF] Bus started: "rabbitmq://localhost/"
+2025-11-20 15:30:38.253 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-20 15:30:38.256 +02:00 [INF] Hosting environment: Development
+2025-11-20 15:30:38.257 +02:00 [INF] Content root path: C:\Users\User\source\repos\TransactionRetrySystem\TransactionRetrySystem.API
+2025-11-20 15:30:38.865 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/index.html - null null
+2025-11-20 15:30:39.893 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/index.html - 200 null text/html;charset=utf-8 1043.1225ms
+2025-11-20 15:30:39.944 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-20 15:30:39.944 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_vs/browserLink - null null
+2025-11-20 15:30:39.959 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - 200 16537 application/javascript; charset=utf-8 16.0309ms
+2025-11-20 15:30:40.015 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_vs/browserLink - 200 null text/javascript; charset=UTF-8 72.7958ms
+2025-11-20 15:30:40.052 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - null null
+2025-11-20 15:30:40.077 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.1868ms
+2025-11-20 15:30:44.728 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7106/api/v1/Transactions/1/retry - null 0
+2025-11-20 15:30:44.742 +02:00 [INF] Executing endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 15:30:44.768 +02:00 [INF] Route matched with {action = "RetryTransaction", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] RetryTransaction(Int32, System.Threading.CancellationToken) on controller TransactionRetrySystem.API.Controllers.TransactionsController (TransactionRetrySystem.API).
+2025-11-20 15:30:44.995 +02:00 [INF] Executed DbCommand (53ms) [Parameters=[@__transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[Id] = @__transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:30:45.233 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-11-20 15:30:45.243 +02:00 [INF] Executed action TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API) in 467.3993ms
+2025-11-20 15:30:45.247 +02:00 [INF] Executed endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 15:30:45.251 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7106/api/v1/Transactions/1/retry - 200 null text/plain; charset=utf-8 523.0975ms
+2025-11-20 15:30:45.865 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__8__locals1_transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[Id] = @__8__locals1_transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:30:45.957 +02:00 [INF] Executed DbCommand (24ms) [Parameters=[@__transaction_UserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[UserId] = @__transaction_UserId_0 AND [t].[StatusId] = 5 AND [t].[AttemptedAt] >= DATEADD(hour, CAST(-1.0E0 AS int), GETUTCDATE())
+2025-11-20 15:30:46.078 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [StatusId] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2025-11-20 15:30:46.185 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[@p4='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [ErrorMessage] = @p1, [ErrorTypeId] = @p2, [StatusId] = @p3
+OUTPUT 1
+WHERE [Id] = @p4;
+2025-11-20 15:30:46.248 +02:00 [ERR] An exception occurred in the database while saving changes for context type 'TransactionRetrySystem.Infrastructure.Context.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_TransactionAttempts_ErrorTypes_ErrorTypeId". The conflict occurred in database "TransactionRetrySystem", table "dbo.ErrorTypes", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:42cabd00-e081-4746-b8d5-26ed52a36a08
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The UPDATE statement conflicted with the FOREIGN KEY constraint "FK_TransactionAttempts_ErrorTypes_ErrorTypeId". The conflict occurred in database "TransactionRetrySystem", table "dbo.ErrorTypes", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetWithRowsAffectedOnlyAsync(Int32 commandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:42cabd00-e081-4746-b8d5-26ed52a36a08
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-11-20 15:30:46.360 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__gateway_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[FailureCount], [c].[Gateway], [c].[LastFailureTime], [c].[State]
+FROM [CircuitBreakerStates] AS [c]
+WHERE [c].[Gateway] = @__gateway_0
+2025-11-20 15:30:46.405 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@p4='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [ErrorMessage] = @p1, [ErrorTypeId] = @p2, [StatusId] = @p3
+OUTPUT 1
+WHERE [Id] = @p4;
+2025-11-20 15:30:46.452 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [CircuitBreakerStates] ([CreatedAt], [FailureCount], [Gateway], [LastFailureTime], [State])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-11-20 15:30:48.167 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7106/api/v1/Transactions/2/retry - null 0
+2025-11-20 15:30:48.173 +02:00 [INF] Executing endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 15:30:48.176 +02:00 [INF] Route matched with {action = "RetryTransaction", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] RetryTransaction(Int32, System.Threading.CancellationToken) on controller TransactionRetrySystem.API.Controllers.TransactionsController (TransactionRetrySystem.API).
+2025-11-20 15:30:48.192 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[Id] = @__transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:30:48.202 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-11-20 15:30:48.206 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__8__locals1_transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[Id] = @__8__locals1_transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:30:48.208 +02:00 [INF] Executed action TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API) in 30.4433ms
+2025-11-20 15:30:48.214 +02:00 [INF] Executed endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 15:30:48.216 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__transaction_UserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[UserId] = @__transaction_UserId_0 AND [t].[StatusId] = 5 AND [t].[AttemptedAt] >= DATEADD(hour, CAST(-1.0E0 AS int), GETUTCDATE())
+2025-11-20 15:30:48.217 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7106/api/v1/Transactions/2/retry - 200 null text/plain; charset=utf-8 50.3492ms
+2025-11-20 15:30:48.223 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [StatusId] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2025-11-20 15:30:48.325 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RetryQueue] ([CreatedAt], [RetryCount], [ScheduledRetryTime], [StatusId], [TransactionId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-11-20 15:30:48.388 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [ErrorMessage] = @p1, [StatusId] = @p2
+OUTPUT 1
+WHERE [Id] = @p3;
+2025-11-20 15:30:49.542 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7106/api/v1/Transactions/3/retry - null 0
+2025-11-20 15:30:49.549 +02:00 [INF] Executing endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 15:30:49.551 +02:00 [INF] Route matched with {action = "RetryTransaction", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] RetryTransaction(Int32, System.Threading.CancellationToken) on controller TransactionRetrySystem.API.Controllers.TransactionsController (TransactionRetrySystem.API).
+2025-11-20 15:30:49.564 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[Id] = @__transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:30:49.575 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-11-20 15:30:49.577 +02:00 [INF] Executed action TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API) in 23.3383ms
+2025-11-20 15:30:49.579 +02:00 [INF] Executed endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 15:30:49.582 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__8__locals1_transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[Id] = @__8__locals1_transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:30:49.583 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7106/api/v1/Transactions/3/retry - 200 null text/plain; charset=utf-8 41.1247ms
+2025-11-20 15:30:49.592 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__transaction_UserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[UserId] = @__transaction_UserId_0 AND [t].[StatusId] = 5 AND [t].[AttemptedAt] >= DATEADD(hour, CAST(-1.0E0 AS int), GETUTCDATE())
+2025-11-20 15:30:49.605 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [StatusId] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2025-11-20 15:30:49.674 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RetryQueue] ([CreatedAt], [RetryCount], [ScheduledRetryTime], [StatusId], [TransactionId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-11-20 15:30:49.689 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [ErrorMessage] = @p1, [StatusId] = @p2
+OUTPUT 1
+WHERE [Id] = @p3;
+2025-11-20 15:30:51.659 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7106/api/v1/Transactions/4/retry - null 0
+2025-11-20 15:30:51.669 +02:00 [INF] Executing endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 15:30:51.670 +02:00 [INF] Route matched with {action = "RetryTransaction", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] RetryTransaction(Int32, System.Threading.CancellationToken) on controller TransactionRetrySystem.API.Controllers.TransactionsController (TransactionRetrySystem.API).
+2025-11-20 15:30:51.682 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[Id] = @__transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:30:51.692 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-11-20 15:30:51.695 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__8__locals1_transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[Id] = @__8__locals1_transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:30:51.696 +02:00 [INF] Executed action TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API) in 21.7032ms
+2025-11-20 15:30:51.701 +02:00 [INF] Executed endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 15:30:51.703 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7106/api/v1/Transactions/4/retry - 200 null text/plain; charset=utf-8 44.7062ms
+2025-11-20 15:30:51.704 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__transaction_UserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[UserId] = @__transaction_UserId_0 AND [t].[StatusId] = 5 AND [t].[AttemptedAt] >= DATEADD(hour, CAST(-1.0E0 AS int), GETUTCDATE())
+2025-11-20 15:30:51.718 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [StatusId] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2025-11-20 15:30:51.794 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RetryQueue] ([CreatedAt], [RetryCount], [ScheduledRetryTime], [StatusId], [TransactionId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-11-20 15:30:51.809 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [ErrorMessage] = @p1, [StatusId] = @p2
+OUTPUT 1
+WHERE [Id] = @p3;
+2025-11-20 15:30:59.210 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7106/api/v1/Transactions/5/retry - null 0
+2025-11-20 15:30:59.218 +02:00 [INF] Executing endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 15:30:59.219 +02:00 [INF] Route matched with {action = "RetryTransaction", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] RetryTransaction(Int32, System.Threading.CancellationToken) on controller TransactionRetrySystem.API.Controllers.TransactionsController (TransactionRetrySystem.API).
+2025-11-20 15:30:59.233 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[Id] = @__transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:30:59.245 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-11-20 15:30:59.246 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__8__locals1_transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[Id] = @__8__locals1_transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:30:59.248 +02:00 [INF] Executed action TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API) in 25.3106ms
+2025-11-20 15:30:59.256 +02:00 [INF] Executed endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 15:30:59.258 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__transaction_UserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[UserId] = @__transaction_UserId_0 AND [t].[StatusId] = 5 AND [t].[AttemptedAt] >= DATEADD(hour, CAST(-1.0E0 AS int), GETUTCDATE())
+2025-11-20 15:30:59.259 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7106/api/v1/Transactions/5/retry - 200 null text/plain; charset=utf-8 50.4393ms
+2025-11-20 15:30:59.272 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [StatusId] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2025-11-20 15:30:59.333 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RetryQueue] ([CreatedAt], [RetryCount], [ScheduledRetryTime], [StatusId], [TransactionId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-11-20 15:30:59.347 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [ErrorMessage] = @p1, [StatusId] = @p2
+OUTPUT 1
+WHERE [Id] = @p3;
+2025-11-20 15:31:00.230 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[@__8__locals1_transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[Id] = @__8__locals1_transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:31:00.653 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7106/api/v1/Transactions/6/retry - null 0
+2025-11-20 15:31:00.660 +02:00 [INF] Executing endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 15:31:00.662 +02:00 [INF] Route matched with {action = "RetryTransaction", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] RetryTransaction(Int32, System.Threading.CancellationToken) on controller TransactionRetrySystem.API.Controllers.TransactionsController (TransactionRetrySystem.API).
+2025-11-20 15:31:00.679 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[@__transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[Id] = @__transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:31:05.876 +02:00 [INF] Executed action TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API) in 5211.0537ms
+2025-11-20 15:31:05.880 +02:00 [INF] Executed endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 15:31:05.888 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at TransactionRetrySystem.Application.Services.TransactionService.RetryTransaction(Int32 transactionId, CancellationToken cancellationToken) in C:\Users\User\source\repos\TransactionRetrySystem\TransactionRetrySystem.Application\Services\TransactionService.cs:line 87
+   at TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction(Int32 id, CancellationToken token) in C:\Users\User\source\repos\TransactionRetrySystem\TransactionRetrySystem.API\Controllers\TransactionsController.cs:line 35
+   at lambda_method19(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-11-20 15:31:05.946 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7106/api/v1/Transactions/6/retry - 500 null text/plain; charset=utf-8 5294.517ms
+2025-11-20 15:31:34.307 +02:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Statuses] AS [s]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:31:34.391 +02:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [ErrorTypes] AS [e]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:31:34.400 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:31:34.410 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TransactionAttempts] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-20 15:31:34.667 +02:00 [INF] Configured endpoint transaction-retry-queue, Consumer: TransactionRetrySystem.Application.Services.TransactionConsumer.RetryTransactionConsumer
+2025-11-20 15:31:35.069 +02:00 [INF] Now listening on: https://localhost:7106
+2025-11-20 15:31:35.071 +02:00 [INF] Now listening on: http://localhost:5050
+2025-11-20 15:31:35.117 +02:00 [INF] Bus started: "rabbitmq://localhost/"
+2025-11-20 15:31:35.183 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-20 15:31:35.185 +02:00 [INF] Hosting environment: Development
+2025-11-20 15:31:35.189 +02:00 [INF] Content root path: C:\Users\User\source\repos\TransactionRetrySystem\TransactionRetrySystem.API
+2025-11-20 15:31:36.167 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/index.html - null null
+2025-11-20 15:31:36.442 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/index.html - 200 null text/html;charset=utf-8 291.236ms
+2025-11-20 15:31:36.492 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_vs/browserLink - null null
+2025-11-20 15:31:36.492 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-20 15:31:36.517 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_framework/aspnetcore-browser-refresh.js - 200 16537 application/javascript; charset=utf-8 26.3241ms
+2025-11-20 15:31:36.561 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/_vs/browserLink - 200 null text/javascript; charset=UTF-8 69.8886ms
+2025-11-20 15:31:36.592 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - null null
+2025-11-20 15:31:36.617 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7106/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 25.1484ms
+2025-11-20 15:31:40.229 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7106/api/v1/Transactions/1/retry - null 0
+2025-11-20 15:31:40.246 +02:00 [INF] Executing endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 15:31:40.283 +02:00 [INF] Route matched with {action = "RetryTransaction", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] RetryTransaction(Int32, System.Threading.CancellationToken) on controller TransactionRetrySystem.API.Controllers.TransactionsController (TransactionRetrySystem.API).
+2025-11-20 15:31:40.511 +02:00 [INF] Executed DbCommand (47ms) [Parameters=[@__transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[Id] = @__transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:31:40.730 +02:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2025-11-20 15:31:40.736 +02:00 [INF] Executed action TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API) in 444.5452ms
+2025-11-20 15:31:40.739 +02:00 [INF] Executed endpoint 'TransactionRetrySystem.API.Controllers.TransactionsController.RetryTransaction (TransactionRetrySystem.API)'
+2025-11-20 15:31:40.745 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7106/api/v1/Transactions/1/retry - 200 null text/plain; charset=utf-8 516.8013ms
+2025-11-20 15:31:41.044 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[@__8__locals1_transactionId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[AttemptNumber], [t].[AttemptedAt], [t].[CreatedAt], [t].[ErrorMessage], [t].[ErrorTypeId], [t].[GatewayResponse], [t].[ResponseTime], [t].[StatusId], [t].[UserId]
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[Id] = @__8__locals1_transactionId_0
+ORDER BY [t].[AttemptedAt] DESC
+2025-11-20 15:31:41.112 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__transaction_UserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [TransactionAttempts] AS [t]
+WHERE [t].[UserId] = @__transaction_UserId_0 AND [t].[StatusId] = 5 AND [t].[AttemptedAt] >= DATEADD(hour, CAST(-1.0E0 AS int), GETUTCDATE())
+2025-11-20 15:31:41.244 +02:00 [INF] Executed DbCommand (17ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [StatusId] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2025-11-20 15:31:42.055 +02:00 [INF] Executed DbCommand (675ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RetryQueue] ([CreatedAt], [RetryCount], [ScheduledRetryTime], [StatusId], [TransactionId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-11-20 15:31:42.156 +02:00 [INF] Executed DbCommand (16ms) [Parameters=[@p4='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TransactionAttempts] SET [AttemptedAt] = @p0, [ErrorMessage] = @p1, [ErrorTypeId] = @p2, [StatusId] = @p3
+OUTPUT 1
+WHERE [Id] = @p4;

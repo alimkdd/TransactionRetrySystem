@@ -1,0 +1,368 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E2C063AC-CC01-85F3-2286-0E9412F94738}|TransactionRetrySystem.Application\\TransactionRetrySystem.Application.csproj|c:\\users\\user\\source\\repos\\transactionretrysystem\\transactionretrysystem.application\\validators\\retrytransactionrequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2C063AC-CC01-85F3-2286-0E9412F94738}|TransactionRetrySystem.Application\\TransactionRetrySystem.Application.csproj|solutionrelative:transactionretrysystem.application\\validators\\retrytransactionrequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2C063AC-CC01-85F3-2286-0E9412F94738}|TransactionRetrySystem.Application\\TransactionRetrySystem.Application.csproj|c:\\users\\user\\source\\repos\\transactionretrysystem\\transactionretrysystem.application\\validators\\retrystrategyrequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2C063AC-CC01-85F3-2286-0E9412F94738}|TransactionRetrySystem.Application\\TransactionRetrySystem.Application.csproj|solutionrelative:transactionretrysystem.application\\validators\\retrystrategyrequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2C063AC-CC01-85F3-2286-0E9412F94738}|TransactionRetrySystem.Application\\TransactionRetrySystem.Application.csproj|c:\\users\\user\\source\\repos\\transactionretrysystem\\transactionretrysystem.application\\dtos\\responses\\transactionstatusresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2C063AC-CC01-85F3-2286-0E9412F94738}|TransactionRetrySystem.Application\\TransactionRetrySystem.Application.csproj|solutionrelative:transactionretrysystem.application\\dtos\\responses\\transactionstatusresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2C063AC-CC01-85F3-2286-0E9412F94738}|TransactionRetrySystem.Application\\TransactionRetrySystem.Application.csproj|c:\\users\\user\\source\\repos\\transactionretrysystem\\transactionretrysystem.application\\dtos\\responses\\retryhistoryresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2C063AC-CC01-85F3-2286-0E9412F94738}|TransactionRetrySystem.Application\\TransactionRetrySystem.Application.csproj|solutionrelative:transactionretrysystem.application\\dtos\\responses\\retryhistoryresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2C063AC-CC01-85F3-2286-0E9412F94738}|TransactionRetrySystem.Application\\TransactionRetrySystem.Application.csproj|c:\\users\\user\\source\\repos\\transactionretrysystem\\transactionretrysystem.application\\dtos\\responses\\paymentgatewayresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2C063AC-CC01-85F3-2286-0E9412F94738}|TransactionRetrySystem.Application\\TransactionRetrySystem.Application.csproj|solutionrelative:transactionretrysystem.application\\dtos\\responses\\paymentgatewayresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2C063AC-CC01-85F3-2286-0E9412F94738}|TransactionRetrySystem.Application\\TransactionRetrySystem.Application.csproj|c:\\users\\user\\source\\repos\\transactionretrysystem\\transactionretrysystem.application\\dtos\\requests\\retrytransactionrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2C063AC-CC01-85F3-2286-0E9412F94738}|TransactionRetrySystem.Application\\TransactionRetrySystem.Application.csproj|solutionrelative:transactionretrysystem.application\\dtos\\requests\\retrytransactionrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2C063AC-CC01-85F3-2286-0E9412F94738}|TransactionRetrySystem.Application\\TransactionRetrySystem.Application.csproj|c:\\users\\user\\source\\repos\\transactionretrysystem\\transactionretrysystem.application\\dtos\\requests\\retrystrategyrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2C063AC-CC01-85F3-2286-0E9412F94738}|TransactionRetrySystem.Application\\TransactionRetrySystem.Application.csproj|solutionrelative:transactionretrysystem.application\\dtos\\requests\\retrystrategyrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2C063AC-CC01-85F3-2286-0E9412F94738}|TransactionRetrySystem.Application\\TransactionRetrySystem.Application.csproj|c:\\users\\user\\source\\repos\\transactionretrysystem\\transactionretrysystem.application\\services\\circuitbreaker\\gatewaycircuitbreaker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2C063AC-CC01-85F3-2286-0E9412F94738}|TransactionRetrySystem.Application\\TransactionRetrySystem.Application.csproj|solutionrelative:transactionretrysystem.application\\services\\circuitbreaker\\gatewaycircuitbreaker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2C063AC-CC01-85F3-2286-0E9412F94738}|TransactionRetrySystem.Application\\TransactionRetrySystem.Application.csproj|c:\\users\\user\\source\\repos\\transactionretrysystem\\transactionretrysystem.application\\services\\transactionconsumer\\retrytransactionconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2C063AC-CC01-85F3-2286-0E9412F94738}|TransactionRetrySystem.Application\\TransactionRetrySystem.Application.csproj|solutionrelative:transactionretrysystem.application\\services\\transactionconsumer\\retrytransactionconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D18FC03E-0040-6FB7-C7D9-66CC8048413F}|TransactionRetrySystem.API\\TransactionRetrySystem.API.csproj|c:\\users\\user\\source\\repos\\transactionretrysystem\\transactionretrysystem.api\\controllers\\transactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D18FC03E-0040-6FB7-C7D9-66CC8048413F}|TransactionRetrySystem.API\\TransactionRetrySystem.API.csproj|solutionrelative:transactionretrysystem.api\\controllers\\transactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2C063AC-CC01-85F3-2286-0E9412F94738}|TransactionRetrySystem.Application\\TransactionRetrySystem.Application.csproj|c:\\users\\user\\source\\repos\\transactionretrysystem\\transactionretrysystem.application\\services\\ratelimiter\\userratelimiter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2C063AC-CC01-85F3-2286-0E9412F94738}|TransactionRetrySystem.Application\\TransactionRetrySystem.Application.csproj|solutionrelative:transactionretrysystem.application\\services\\ratelimiter\\userratelimiter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D18FC03E-0040-6FB7-C7D9-66CC8048413F}|TransactionRetrySystem.API\\TransactionRetrySystem.API.csproj|c:\\users\\user\\source\\repos\\transactionretrysystem\\transactionretrysystem.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D18FC03E-0040-6FB7-C7D9-66CC8048413F}|TransactionRetrySystem.API\\TransactionRetrySystem.API.csproj|solutionrelative:transactionretrysystem.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D18FC03E-0040-6FB7-C7D9-66CC8048413F}|TransactionRetrySystem.API\\TransactionRetrySystem.API.csproj|c:\\users\\user\\source\\repos\\transactionretrysystem\\transactionretrysystem.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D18FC03E-0040-6FB7-C7D9-66CC8048413F}|TransactionRetrySystem.API\\TransactionRetrySystem.API.csproj|solutionrelative:transactionretrysystem.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D18FC03E-0040-6FB7-C7D9-66CC8048413F}|TransactionRetrySystem.API\\TransactionRetrySystem.API.csproj|c:\\users\\user\\source\\repos\\transactionretrysystem\\transactionretrysystem.api\\common\\mapperregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D18FC03E-0040-6FB7-C7D9-66CC8048413F}|TransactionRetrySystem.API\\TransactionRetrySystem.API.csproj|solutionrelative:transactionretrysystem.api\\common\\mapperregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D18FC03E-0040-6FB7-C7D9-66CC8048413F}|TransactionRetrySystem.API\\TransactionRetrySystem.API.csproj|c:\\users\\user\\source\\repos\\transactionretrysystem\\transactionretrysystem.api\\docker\\docker-compose.yml||{06C066C6-04A2-4E5D-8202-439FD4234EF1}",
+      "RelativeMoniker": "D:0:0:{D18FC03E-0040-6FB7-C7D9-66CC8048413F}|TransactionRetrySystem.API\\TransactionRetrySystem.API.csproj|solutionrelative:transactionretrysystem.api\\docker\\docker-compose.yml||{06C066C6-04A2-4E5D-8202-439FD4234EF1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 25,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:142:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:141:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:140:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:137:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RetryTransactionRequestValidator.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.Application\\Validators\\RetryTransactionRequestValidator.cs",
+              "RelativeDocumentMoniker": "TransactionRetrySystem.Application\\Validators\\RetryTransactionRequestValidator.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.Application\\Validators\\RetryTransactionRequestValidator.cs",
+              "RelativeToolTip": "TransactionRetrySystem.Application\\Validators\\RetryTransactionRequestValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T10:08:08.549Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RetryStrategyRequestValidator.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.Application\\Validators\\RetryStrategyRequestValidator.cs",
+              "RelativeDocumentMoniker": "TransactionRetrySystem.Application\\Validators\\RetryStrategyRequestValidator.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.Application\\Validators\\RetryStrategyRequestValidator.cs",
+              "RelativeToolTip": "TransactionRetrySystem.Application\\Validators\\RetryStrategyRequestValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T10:08:01.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TransactionStatusResponse.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.Application\\Dtos\\Responses\\TransactionStatusResponse.cs",
+              "RelativeDocumentMoniker": "TransactionRetrySystem.Application\\Dtos\\Responses\\TransactionStatusResponse.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.Application\\Dtos\\Responses\\TransactionStatusResponse.cs",
+              "RelativeToolTip": "TransactionRetrySystem.Application\\Dtos\\Responses\\TransactionStatusResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T10:07:45.359Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RetryHistoryResponse.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.Application\\Dtos\\Responses\\RetryHistoryResponse.cs",
+              "RelativeDocumentMoniker": "TransactionRetrySystem.Application\\Dtos\\Responses\\RetryHistoryResponse.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.Application\\Dtos\\Responses\\RetryHistoryResponse.cs",
+              "RelativeToolTip": "TransactionRetrySystem.Application\\Dtos\\Responses\\RetryHistoryResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T10:07:39.317Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PaymentGatewayResponse.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.Application\\Dtos\\Responses\\PaymentGatewayResponse.cs",
+              "RelativeDocumentMoniker": "TransactionRetrySystem.Application\\Dtos\\Responses\\PaymentGatewayResponse.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.Application\\Dtos\\Responses\\PaymentGatewayResponse.cs",
+              "RelativeToolTip": "TransactionRetrySystem.Application\\Dtos\\Responses\\PaymentGatewayResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T10:07:32.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RetryTransactionRequest.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.Application\\Dtos\\Requests\\RetryTransactionRequest.cs",
+              "RelativeDocumentMoniker": "TransactionRetrySystem.Application\\Dtos\\Requests\\RetryTransactionRequest.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.Application\\Dtos\\Requests\\RetryTransactionRequest.cs",
+              "RelativeToolTip": "TransactionRetrySystem.Application\\Dtos\\Requests\\RetryTransactionRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T10:07:16.089Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RetryStrategyRequest.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.Application\\Dtos\\Requests\\RetryStrategyRequest.cs",
+              "RelativeDocumentMoniker": "TransactionRetrySystem.Application\\Dtos\\Requests\\RetryStrategyRequest.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.Application\\Dtos\\Requests\\RetryStrategyRequest.cs",
+              "RelativeToolTip": "TransactionRetrySystem.Application\\Dtos\\Requests\\RetryStrategyRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T10:07:04.786Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RetryTransactionConsumer.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.Application\\Services\\TransactionConsumer\\RetryTransactionConsumer.cs",
+              "RelativeDocumentMoniker": "TransactionRetrySystem.Application\\Services\\TransactionConsumer\\RetryTransactionConsumer.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.Application\\Services\\TransactionConsumer\\RetryTransactionConsumer.cs",
+              "RelativeToolTip": "TransactionRetrySystem.Application\\Services\\TransactionConsumer\\RetryTransactionConsumer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T09:59:02.057Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TransactionsController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.API\\Controllers\\TransactionsController.cs",
+              "RelativeDocumentMoniker": "TransactionRetrySystem.API\\Controllers\\TransactionsController.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.API\\Controllers\\TransactionsController.cs",
+              "RelativeToolTip": "TransactionRetrySystem.API\\Controllers\\TransactionsController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwCIAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T09:52:17.104Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GatewayCircuitBreaker.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.Application\\Services\\CircuitBreaker\\GatewayCircuitBreaker.cs",
+              "RelativeDocumentMoniker": "TransactionRetrySystem.Application\\Services\\CircuitBreaker\\GatewayCircuitBreaker.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.Application\\Services\\CircuitBreaker\\GatewayCircuitBreaker.cs",
+              "RelativeToolTip": "TransactionRetrySystem.Application\\Services\\CircuitBreaker\\GatewayCircuitBreaker.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T09:54:39.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UserRateLimiter.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.Application\\Services\\RateLimiter\\UserRateLimiter.cs",
+              "RelativeDocumentMoniker": "TransactionRetrySystem.Application\\Services\\RateLimiter\\UserRateLimiter.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.Application\\Services\\RateLimiter\\UserRateLimiter.cs",
+              "RelativeToolTip": "TransactionRetrySystem.Application\\Services\\RateLimiter\\UserRateLimiter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T09:58:25.741Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.API\\Program.cs",
+              "RelativeDocumentMoniker": "TransactionRetrySystem.API\\Program.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.API\\Program.cs",
+              "RelativeToolTip": "TransactionRetrySystem.API\\Program.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T09:53:47.201Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.API\\appsettings.json",
+              "RelativeDocumentMoniker": "TransactionRetrySystem.API\\appsettings.json",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.API\\appsettings.json",
+              "RelativeToolTip": "TransactionRetrySystem.API\\appsettings.json",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-03T09:53:03.785Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "MapperRegistration.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.API\\Common\\MapperRegistration.cs",
+              "RelativeDocumentMoniker": "TransactionRetrySystem.API\\Common\\MapperRegistration.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.API\\Common\\MapperRegistration.cs",
+              "RelativeToolTip": "TransactionRetrySystem.API\\Common\\MapperRegistration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T09:51:54.902Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "docker-compose.yml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.API\\Docker\\docker-compose.yml",
+              "RelativeDocumentMoniker": "TransactionRetrySystem.API\\Docker\\docker-compose.yml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\TransactionRetrySystem\\TransactionRetrySystem.API\\Docker\\docker-compose.yml",
+              "RelativeToolTip": "TransactionRetrySystem.API\\Docker\\docker-compose.yml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2025-12-03T09:52:01.753Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "FullName": "Alice Johnson",
+    "Email": "alice@example.com",
+    "CreatedAt": "2025-11-19T00:00:00Z"
+  },
+  {
+    "FullName": "Bob Smith",
+    "Email": "bob@example.com",
+    "CreatedAt": "2025-11-19T00:00:00Z"
+  },
+  {
+    "FullName": "Charlie Brown",
+    "Email": "charlie@example.com",
+    "CreatedAt": "2025-11-19T00:00:00Z"
+  }
+]

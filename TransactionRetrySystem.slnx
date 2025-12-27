@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="TransactionRetrySystem.API/TransactionRetrySystem.API.csproj" />
+  <Project Path="TransactionRetrySystem.Application/TransactionRetrySystem.Application.csproj" />
+  <Project Path="TransactionRetrySystem.Domain/TransactionRetrySystem.Domain.csproj" />
+  <Project Path="TransactionRetrySystem.Infrastructure/TransactionRetrySystem.Infrastructure.csproj" />
+</Solution>

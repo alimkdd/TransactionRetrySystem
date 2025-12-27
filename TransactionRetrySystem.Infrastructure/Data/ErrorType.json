@@ -1,0 +1,42 @@
+[
+  {
+    "Name": "NetworkTimeout",
+    "CreatedAt": "2025-11-19T00:00:00Z"
+  },
+  {
+    "Name": "GatewayBusy",
+    "CreatedAt": "2025-11-19T00:00:00Z"
+  },
+  {
+    "Name": "RateLimitExceeded",
+    "CreatedAt": "2025-11-19T00:00:00Z"
+  },
+  {
+    "Name": "TemporaryServerError",
+    "CreatedAt": "2025-11-19T00:00:00Z"
+  },
+  {
+    "Name": "CardDeclined",
+    "CreatedAt": "2025-11-19T00:00:00Z"
+  },
+  {
+    "Name": "InsufficientFunds",
+    "CreatedAt": "2025-11-19T00:00:00Z"
+  },
+  {
+    "Name": "InvalidAccountNumber",
+    "CreatedAt": "2025-11-19T00:00:00Z"
+  },
+  {
+    "Name": "FraudDetected",
+    "CreatedAt": "2025-11-19T00:00:00Z"
+  },
+  {
+    "Name": "AuthenticationFailed",
+    "CreatedAt": "2025-11-19T00:00:00Z"
+  },
+  {
+    "Name": "Unknown",
+    "CreatedAt": "2025-11-19T00:00:00Z"
+  }
+]
